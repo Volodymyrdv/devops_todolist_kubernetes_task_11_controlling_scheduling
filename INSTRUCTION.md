@@ -6,7 +6,7 @@
         - One node should have the label `app=mysql`.
 2. **Verify Node Taints:**
    - Use `kubectl get nodes -o jsonpath="{range .items[*]}{.metadata.name}{'\t'}{range .spec.taints[*]}{.key}={.value}:{.effect}{'\t'}{end}{'\n'}"
-   ` to look to the all taints ware created
+   ` to view all taints that were created
 3. **Verify MySQL StatefulSet Pod Scheduling:**
     - Use `kubectl get pods -n mysql -o wide` to see where the MySQL pod is scheduled.
     - Confirm that the MySQL pod is scheduled on the node with the `app=mysql` label
